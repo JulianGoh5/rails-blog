@@ -5,27 +5,43 @@
 # - standard CRUD actions: index, show, new , edit, create, update and destroy
 # - somehow the '@article' convention allows the controller to link into the views folder - '@foobar' is an instance variable of self, instance variables belong to a certain object
 
-
 class ArticlesController < ApplicationController
-  def index #URI /welcome/index(.:format)
+  # URI /welcome/index(.:format)
+  def index
     @articles = Article.all # Where does articles come from? Presumably the OG 'bin/rails routes'
   end
 
-  def show #URI /articles/:id(.:format)
+  # URI /articles/:id(.:format)
+  def show
     @article = Article.find(params[:id])
   end
 
-  def new # URI /articles/new
+  # URI /articles/new
+  def new
     @article = Article.new
-   end 
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
 
   def create
-    @article = Article.new(article_params) #Initialises model 'Article' with params[:article]
+    @article = Article.new(article_params) # Initialises model 'Article' with params[:article]
 
-    if  @article.save
+    if @article.save
       redirect_to @article
-    else 
+    else
       render 'new', status: 422
+    end
+  end
+
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+        redirect_to @article
+    else
+      render 'edit', status: 422
     end
   end
 
@@ -35,5 +51,3 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :text)
   end
 end
-
-

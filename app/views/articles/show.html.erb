@@ -9,4 +9,5 @@
   <%= @article.text %>
 </p>
 
+<%= link_to 'Edit', edit_article_path(@article)%> <!-- Wow edit_article_path can be a method also !-->
 <%= link_to 'Back', new_article_path %>

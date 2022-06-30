@@ -6,13 +6,15 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
+    <th colspan="2"></th>
   </tr>
  
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>  <!-- No idea how article_path becomes a method !-->
+      <td><%= link_to 'Show', article_path(article) %></td>  <!-- No idea how article_path becomes a method. '_path' specific method that points to the path of '/articles' !-->
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>  <!-- edit_article -> /articles/:id/edit(.:format)!-->
     </tr>
   <% end %>
 </table>
