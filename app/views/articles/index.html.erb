@@ -1,4 +1,4 @@
-<%= link_to 'New article', new_article_path %>
+<%= link_to 'New article', new_article_path %> <!-- new_article_path - this is defined in the attributes of the form?? '_path' is a specific keyword that links with the new_article URI!-->
 
 <h1>Listing articles</h1>
  
@@ -12,9 +12,9 @@
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Show', article_path(article) %></td>  <!-- No idea how article_path becomes a method !-->
     </tr>
   <% end %>
 </table>
 
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', root_path %> <!-- '_path' seems to be a specific keyword, 'root' being linked to the '/' URI !-->
