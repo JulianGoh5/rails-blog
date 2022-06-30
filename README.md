@@ -28,3 +28,4 @@ Things you may want to cover:
 - Start server - 'bin/rails server'
 - Creating new objects (controller) - 'bin/rails generate controller Welcome index'
 - Creating new objects (model) - 'bin/rails generate model Article title:string text:text'
+- Show existing routes - bin/rails routes
