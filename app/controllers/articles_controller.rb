@@ -6,6 +6,8 @@
 # - somehow the '@article' convention allows the controller to link into the views folder - '@foobar' is an instance variable of self, instance variables belong to a certain object
 
 class ArticlesController < ApplicationController
+  http_basic_authenticate_with name:'dev', password: 'password', except: [:index, :show]
+
   # URI /welcome/index(.:format)
   def index
     @articles = Article.all # Where does articles come from? Presumably the OG 'bin/rails routes'
