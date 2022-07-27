@@ -4,6 +4,7 @@
  
 <table>
   <tr>
+    <th>Created at</th>
     <th>Title</th>
     <th>Text</th>
     <th colspan="3"></th>
@@ -11,6 +12,7 @@
  
   <% @articles.each do |article| %>
     <tr>
+      <td><%= article.created_at%> </td>
       <td><%= article.title %></td> <!--Controller instance variables can be accessed by the view !--> 
       <td><%= article.text %></td>
       <td><%= link_to 'Show', article_path(article) %></td>  <!-- No idea how article_path becomes a method. '_path' specific method that points to the path of '/articles' !-->
